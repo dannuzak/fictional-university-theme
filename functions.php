@@ -18,3 +18,22 @@ add_action('wp_enqueue_scripts', 'university_files');
 // add_action() is a WP function that will allow us to execute a function at a specific time
 //first argument is the name of the action or kind of action, like loading a CSS or JS file, in this case we want to load a style
 //second argument is the name of the function that will be executed when the action is called at a specific time
+
+function university_features() {
+    //here we can add theme support
+    add_theme_support('title-tag');
+    //this function will add the title tag to the head of the page
+ /*    add_theme_support('post-thumbnails');
+    //this function will add the featured image functionality to the theme
+    add_image_size('professorLandscape', 400, 260, true);
+    //this function will add a new image size to the theme. The first argument is the name of the image size, the second argument is the width, the third argument is the height, the fourth argument is a boolean that tells WP if we want to crop the image or not
+    add_image_size('professorPortrait', 480, 650, true);
+    //this function will add a new image size to the theme. The first argument is the name of the image size, the second argument is the width, the third argument is the height, the fourth argument is a boolean that tells WP if we want to crop the image or not
+    add_image_size('pageBanner', 1500, 350, true);
+    //this function will add a new image size to the theme. The first argument is the name of the image size, the second argument is the width, the third argument is the height, the fourth argument is a boolean that tells WP if we want to crop the image or not */
+}
+
+add_action('after_setup_theme', 'university_features');
+//this action will be executed after the theme is set up
+//first argument is the name of the action
+//second argument is the name of the function that will be executed when the action is called at a specific time
