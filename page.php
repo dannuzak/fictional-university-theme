@@ -18,13 +18,33 @@ while (have_posts()) { // this function will check if there are any posts to sho
     </div>
 
 <!-- breadcrumb box -->
-    
+
+
 <div class="container container--narrow page-section">
-      <div class="metabox metabox--position-up metabox--with-home-link">
+
+<?php
+
+$theParent = wp_get_post_parent_id(get_the_ID()); // get the parent page id
+
+//create a variable to store the parent page id
+// create a conditional statement to check if the page has a parent and if it does then the parent page id is greater than 0, therefore it will display the breadcrumb box
+// if the page does not have a parent page then the parent page id will be 0 and the breadcrumb box will not be displayed
+// the_permalink() will display the url of the page
+// get_the_title() will display the title of the page
+
+
+if ($theParent) { ?>
+    <div class="metabox metabox--position-up metabox--with-home-link">
         <p>
-          <a class="metabox__blog-home-link" href="#"><i class="fa fa-home" aria-hidden="true"></i> Testing Mac </a> <span class="metabox__main"><?php the_title(); ?></span>
+          <!-- correct the code to set the link to the parent page -->  
+        
+        
+          <a class="metabox__blog-home-link" href="<?php echo get_permalink($theParent); ?>"><i class="fa fa-home" aria-hidden="true"></i> Back to <?php echo get_the_title($theParent)?></a> <span class="metabox__main"><?php the_title(); ?></span>
         </p>
       </div>
+    <?php }
+?>
+      
 
     <!--   <div class="page-links">
         <h2 class="page-links__title"><a href="#">About Us</a></h2>
